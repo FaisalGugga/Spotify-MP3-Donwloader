@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://db.onlinewebfonts.com/c/01173b246d9d9ea808ea75a26b3b61bb?family=CircularSpotifyTxT-Black" rel="stylesheet">
+    <script src="./node_modules/axios/dist/axios.js"></script>
+
+    
+    
+    
+</head>
+<style>
+    body{
+      font-family: "CircularSpotifyTxT-Black";
+      margin:0
+    }
+    .top{
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        display: flex;
+        top: 0; left: 0; right:0;
+        background-color: black;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .left-side, .right-side{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 10px 20px;
+        margin-left:30px;
+        margin-right:30px;
+        border-radius: 8px;
+
+        
+    }
+     img{
+       height: 35px;
+    }
+   
+    span {
+        border-radius: 25px;
+        height: 50px;
+        width: 130px;
+        margin-top: 0;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        color:rgb(12,12,12)k;
+        font-weight: bold;
+    }
+
+    h1, h2, h3, h4, h5 ,h6{
+        color:white;
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .right-side span img{
+        border-radius: 25px;
+        width:35px
+
+    }
+    .right-side span{
+        gap: 5px;
+        background-color: #FFFFFF;
+    }
+    
+    
+    .bottom {
+        margin-top:70px;
+        background-color: rgb(12,12,12);
+        width:100%;
+        height:1500px
+      
+    }
+    .bottom-header{
+        background: linear-gradient(357deg,rgba(12, 12, 12, 1) 28%, rgba(22, 148, 66, 1) 100%);
+        height:300px;
+        width:100%;
+        position: absolute;
+        
+        
+    }
+    .bottom-back{
+        position: relative;
+        margin:auto;
+        width:30%;
+        padding: 32px 16px 32px 16px
+
+    }
+    .bottom-back h2{
+        font-size:16px;
+        padding-bottom: 20px;
+    }
+    .bottom-back h3{
+        font-size: 46px;
+        padding-bottom:46px;
+    }
+    
+    .greets{
+        width:100%;
+        gap:10px;
+        display:flex;
+        margin-bottom:20px
+    }
+
+    .greets img{
+        border-radius: 50px;
+        width:48px;
+        height:48px;
+        
+        
+    }
+    .greets span{
+        color:#FFFFFF;
+        font-size:24px;
+        width:auto
+        
+    }
+
+    .search-track{
+        width:100%;
+        padding-top:12px;
+        padding-bottom:12px;
+        position:relative;
+        
+    }
+
+    .search-track input{
+        width:100%;
+        border-radius: 1px;
+        border: 1px solid #ccc;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 46px;
+        box-sizing: border-box;
+    }
+    
+    .search-icon{
+        position:absolute;
+        left:10px;
+        top:50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+    }
+    .download-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .download-btn button{
+        border-radius: 25px;
+        height: 50px;
+        width: 130px;
+        gap: 5px;
+        color:#121212;
+        background-color: #1ed760;
+        font-family: "CircularSpotifyTxT-Black" ;
+        font-size:16px;
+        border: 1px solid #1ed760;
+    }
+
+    .download-content{
+        background-color:#121212;
+        margin-top: 45px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; 
+        display: flex;
+        padding-bottom: 15px;
+
+    }
+    .download-content img{
+        margin-top: 20px;
+        width:250px;
+        height:250px;
+    }
+    .download-content h1{
+        margin-top: 15px;
+        font-size:19px
+    }
+    .download-content h2{
+        margin-top: 10px;
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+    .btn-span{
+        cursor:pointer;
+        transition: background-color 0.3;
+    }
+    .btn-span:hover{
+        background-color: #ccc;
+        transform: scale(1.05);
+    }
+
+    .btn-btn{
+        cursor:pointer;
+        transition: background-color transform 0.3;
+    }
+    .btn-btn:hover{
+        transform: scale(1.05);
+        background-color: #75d697;
+    }
+    
+    .h1Animation{
+        cursor:pointer;
+        transition: transform 0.3;
+    }
+    .h1Animation:hover{
+        transform: scale(1.05);
+    }
+   
+    
+</style>
+<body>
+    <!-- Start Body Div -->
+    <div class="body">
+
+        <!-- Start Top Div -->
+        <div class="top">
+
+            <!-- Start Left Side Div -->
+            <div class="left-side" >
+                <img src="https://support.spotifycdn.com/turnkey-masthead/consumer/logo-consumer-v2.svg" alt="nothing" class="center" style="max-width: 100%; max-height: 100%;">
+                <h1 class="h1Animation">Explore Premium</h1>
+                <h1 class="h1Animation">Install App</h1>
+            </div>
+            <!-- End Left Side Div -->
+
+            <div class="right-side">
+                <h1 class="h1Animation">Log out</h1>
+                <span class="btn-span"> <img src="https://preview.redd.it/i-have-never-played-any-of-the-silent-hill-games-ask-me-v0-2g19szbcyk8d1.jpeg?width=640&crop=smart&auto=webp&s=d05f6bcee3e133fafb160a61cd212dc0b10a4efb">Account</span>
+            </div>
+        </div>
+        <!-- End Top Div -->
+
+        <!-- Start Bottom Div -->
+        <div class="bottom">
+            <!-- Start bottom-header Div -->
+            <div class="bottom-header">
+                
+            </div>
+            <!-- End Bottom Div -->
+
+            <!-- Start Bottom-content -->
+            <div class="bottom-back">
+                <h2>Made by Faisal</h2>
+                <h3>Please Enter your Track URL from Spotify</h3>
+
+                <div class="greets">
+                    <img src="https://preview.redd.it/i-have-never-played-any-of-the-silent-hill-games-ask-me-v0-2g19szbcyk8d1.jpeg?width=640&crop=smart&auto=webp&s=d05f6bcee3e133fafb160a61cd212dc0b10a4efb" alt="User Image">
+                    <span>Hello, Faisal</span>
+                </div>
+
+
+                <div class="search-track">
+                    <img src="https://www.svgrepo.com/show/355893/search.svg" class="search-icon">
+                    <input type="text" name="search" id="url" placeholder="Search">
+                </div>
+
+                <div class="download-btn">
+                    <button class="btn-btn" id="search-btn">Search</button>
+                </div>
+
+                <div class="download-content">
+                    <img id="img-download" src="https://media1.tenor.com/m/Gm5xxcjzKlUAAAAC/gugga-heather-mason.gif" onerror="this.style.display='none'">
+                    <h1 id="nameTrack"></h1>
+                    <h2 id="artistName"></h2>
+                    <hr style="width: 90%; height:2px;border: none; background-color: #1f1f1f;">
+
+                    <div class="download-btn">
+                    <button class="btn-btn" id="download-btn" href="" >Download</button>
+                    </div>
+
+                </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- End Bottom-content -->
+
+        </div>
+    </div>
+</body>
+
+<script type="module">
+   
+import queryString from 'https://cdn.jsdelivr.net/npm/query-string@7.1.1/+esm'
+
+
+let client_id = prompt("Please Enter Your Clinet ID")
+let client_secret = prompt("Please Enter Your Client Secret")
+
+getToken(client_id,client_secret).then(token => {
+    localStorage.setItem("token",token)
+})
+let token = localStorage.getItem("token")
+
+
+
+async function getToken(client_id,client_secret){
+    
+    let authStr = `${client_id}:${client_secret}`
+    let encoded64 = btoa(authStr)
+    let authEncoded64 = `Basic ${encoded64}`
+
+    let data ={
+        grant_type:"client_credentials"
+    }
+    data = queryString.stringify(data)
+
+    let response = await axios.post('https://accounts.spotify.com/api/token', data,{
+
+    headers: {
+        "Content-Type":"application/x-www-form-urlencoded",
+        "Authorization":authEncoded64
+    }
+
+    })
+    try{
+        let token = response.data.access_token
+        let token_type = response.data.token_type;
+        let token_return = token_type +" " + token
+        return token_return
+    
+    }catch(response){
+        alert(response)
+    }
+}
+
+
+
+async function getTrack(token,track_id){
+    let response = await axios.get("https://api.spotify.com/v1/tracks/" + track_id,{
+        headers: {
+            "Authorization": token
+        }
+    })
+    try{
+        let track_name = response.data.name
+        let track_image = response.data.album.images[0].url
+        let artist_name = response.data.artists[0].name
+
+        let track_data = {
+            track_name:track_name,
+            track_image:track_image,
+            artist_name:artist_name
+        }
+        return track_data
+
+    }catch(response){
+        alert("Error #2: "+ response)
+    }
+}
+
+let local_save_info = null
+document.getElementById("search-btn").addEventListener("click",async function(){
+    let track_link = document.getElementById("url").value
+    let track_id = track_link.split("/").pop()
+    
+
+    try{
+    local_save_info= await getTrack(token,track_id)
+    console.log(local_save_info)
+    
+    let track_image = document.getElementById("img-download")
+    track_image.src = local_save_info.track_image
+    let artist_name = document.getElementById("artistName")
+    artist_name.innerHTML = local_save_info.artist_name
+    let track_name = document.getElementById("nameTrack")
+    track_name.innerHTML = local_save_info.track_name
+
+    }catch(error){
+        alert("Error #2: "+ " - Please enter the right URL of Spotify Track"+ error )
+    }
+
+})
+
+
+document.getElementById("download-btn").addEventListener("click",async function (){
+    try{
+        if(!local_save_info.track_name && local_save_info.artist_name ){
+            throw new Error("Missing track name or artist name.");
+        }
+
+        let response_search = await axios.get(`http://localhost:3000/searchYoutube`,{
+            params:{
+                search_query: `${local_save_info.track_name} - ${local_save_info.artist_name} Offical Audio`,
+            }
+        })
+
+            let youtube_link = response_search.data.video_results[0].link
+
+            console.log(youtube_link)
+
+            window.open(`http://localhost:3000/downloadMP3?url=${encodeURIComponent(youtube_link)}&trackName=${local_save_info.track_name}&artistName=${local_save_info.artist_name}
+            `)
+
+        }catch (error){
+            alert("Error #4: "+" - Please search for a track to download your music "+ error)
+        }
+
+})
+        
+        
+
+    
+
+
+
+</script>
+</html>
